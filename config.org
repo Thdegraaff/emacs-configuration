@@ -1,0 +1,40 @@
+#+TITLE: Doom Emacs configuration
+#+AUTHOR: Thomas de Graaff
+
+* Rudimentary configuration
+I have no idea why this should work (but see [[https://nullprogram.com/blog/2016/12/22/][this blog post]]
+for more info).
+#+BEGIN_SRC emacs-lisp :comments no
+;;; config.el -*- lexical-binding: t; -*-
+#+END_SRC
+
+* Overall configuration
+** fonts
+#+BEGIN_SRC emacs-lisp :comments no
+(setq
+ doom-font (font-spec :family "Fira Mono" :size 16)
+ doom-big-font (font-spec :family "Fira Mono" :size 36)
+ doom-variable-pitch-font (font-spec :family "Overpass" :size 14))
+#+END_SRC
+** editor
+
+I like my emacs to be opened fullscreen
+
+#+BEGIN_SRC emacs-lisp :comments no
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
+#+END_SRC
+
+* Markdown
+
+#+BEGIN_SRC emacs-lisp :comments no
+(add-to-list 'auto-mode-alist '("\\.md" . poly-markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.rmd" . poly-markdown+R-mode))
+#+END_SRC
+
+* LaTeX
+
+#+BEGIN_SRC emacs-lisp :comments no
+(setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin/"))
+(setq exec-path (append exec-path '("/Library/TeX/texbin/")))
+#+END_SRC
