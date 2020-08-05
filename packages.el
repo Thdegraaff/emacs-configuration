@@ -8,3 +8,7 @@
 (package! polymode)
 (package! poly-markdown)
 (package! poly-R)
+(package! helm-bibtex)
+(package! org-ref)
+(package! org-roam-bibtex)
+(package! org-noter)
